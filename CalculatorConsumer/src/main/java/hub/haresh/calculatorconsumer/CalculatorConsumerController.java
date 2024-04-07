@@ -3,6 +3,7 @@ package hub.haresh.calculatorconsumer;
 import hub.haresh.common.model.AcknowledgeResponse;
 import hub.haresh.common.model.CalculatorResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

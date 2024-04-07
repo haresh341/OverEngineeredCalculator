@@ -2,6 +2,7 @@ package hub.haresh.calculatorconsumer;
 
 import hub.haresh.common.model.CalculatorResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -19,6 +20,7 @@ public class CalculateResponseService {
         this.calculatorResponseRepository = calculatorResponseRepository;
     }
 
+    @Cacheable(value = "result", key = "#id")
     public CalculatorResponse getResponse(Integer id) throws CalculateRequestNotFoundException {
         if (localCache.containsKey(id)) {
             return localCache.get(id);
